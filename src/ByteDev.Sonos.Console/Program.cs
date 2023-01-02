@@ -75,6 +75,20 @@ namespace ByteDev.Sonos.Console
                         return;
                     }
 
+                    case "enqueue":
+                    {
+                        var valueArg = GetValueArg(args, i);
+
+                        if (string.IsNullOrEmpty(valueArg))
+                        {
+                            Output.WriteLine($"{opArg} has no supplied value arg.");
+                            return;
+                        }
+
+                        sonosOperations.AddQueueTrack(valueArg);
+                        return;
+                    }
+
                     case "getisplaying":
                     {
                         var isPlaying = sonosOperations.GetIsPlaying();

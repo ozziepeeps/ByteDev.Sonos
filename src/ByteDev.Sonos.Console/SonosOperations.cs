@@ -52,6 +52,11 @@ namespace ByteDev.Sonos.Console
             }
         }
 
+        public void AddQueueTrack(string url)
+        {
+            _sonosController.AddQueueTrackAsync(url).Wait();
+        }
+
         public bool GetIsPlaying()
         {
             return _sonosController.GetIsPlayingAsync().Result;
