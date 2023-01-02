@@ -89,6 +89,18 @@ namespace ByteDev.Sonos.Console
                         return;
                     }
 
+                    case "queue":
+                    {
+                        var queue = sonosOperations.GetQueue();
+
+                        foreach (var item in queue.Items)
+                        {
+                            Output.WriteLine(item.Title);
+                        }
+
+                        return;
+                    }
+
                     case "getisplaying":
                     {
                         var isPlaying = sonosOperations.GetIsPlaying();
